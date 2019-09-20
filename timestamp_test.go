@@ -1,12 +1,11 @@
 package GoFor_MFT_Parser
 
 import (
-	"encoding/hex"
 	"testing"
+	"time"
 )
 
 func TestTimeStamp_Parse(t *testing.T) {
-	timestampBytes, _ := hex.DecodeString("EA24CD4A74D4D101")
 	type args struct {
 		timestampBytes []byte
 	}
@@ -14,22 +13,24 @@ func TestTimeStamp_Parse(t *testing.T) {
 		name      string
 		timestamp TimeStamp
 		args      args
-		want      TimeStamp
+		want      string
 	}{
 		{
 			name: "Timestamp test",
 			args: args{
-				timestampBytes: timestampBytes,
+				timestampBytes: []byte{234, 36, 205, 74, 116, 212, 209, 1},
 			},
-			timestamp: TimeStamp(""),
-			want:      TimeStamp("2016-07-02T15:13:30Z"),
+			timestamp: TimeStamp{},
+			want:      "2016-07-02T15:13:30Z",
 		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			tt.timestamp.Parse(tt.args.timestampBytes)
-			if tt.timestamp != tt.want {
-				t.Errorf("TimeStamp.Parse() = %v, want %v", tt.timestamp, tt.want)
+			ts := time.Time(tt.timestamp).Format("2006-01-02T15:04:05Z")
+			if ts != tt.want {
+				t.Errorf("TimeStamp.Parse() = %v, want = %v", ts, tt.want)
+
 			}
 		})
 	}
