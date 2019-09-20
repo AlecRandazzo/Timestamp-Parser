@@ -27,10 +27,20 @@ jobs:
       - run: go get -v -t -d ./...
       - run: go test -v ./... -race -coverprofile=coverage.txt -covermode=atomic
 parameters:
+  conf:
+    description: Used to specify the location of the .codecov.yml config file
+    type: string
+    default: .codecov.yml
   file:
     description: Path to the code coverage data file to upload.
     type: string
     default: 'coverage.txt'
+  flags:
+    description: >-
+      Flag the upload to group coverage metrics (e.g. unittests | integration |
+      ui,chrome)
+    type: string
+    default: ''
   token:
     description: >-
       Set the private repository token (defaults to environment variable
