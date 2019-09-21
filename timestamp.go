@@ -22,7 +22,7 @@ func (timestamp *TimeStamp) Parse(timestampBytes []byte) (err error) {
 
 	// verify that we are getting the bytes we need
 	if len(timestampBytes) != 8 {
-		err = fmt.Errorf("timestamp.parse() received %i bytes, not 8 bytes", len(timestampBytes))
+		err = fmt.Errorf("timestamp.parse() received %v bytes, not 8 bytes", len(timestampBytes))
 	}
 
 	var delta = time.Date(1970-369, 1, 1, 0, 0, 0, 0, time.UTC).UnixNano()
