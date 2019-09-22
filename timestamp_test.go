@@ -31,7 +31,7 @@ func TestTimeStamp_Parse(t *testing.T) {
 				timestampBytes: []byte{},
 			},
 			timestamp: TimeStamp{},
-			want:      "",
+			want:      "0001-01-01T00:00:00Z",
 			wantErr:   true,
 		},
 	}
@@ -39,8 +39,8 @@ func TestTimeStamp_Parse(t *testing.T) {
 		t.Run(tt.name, func(t *testing.T) {
 			err := tt.timestamp.Parse(tt.args.timestampBytes)
 			ts := time.Time(tt.timestamp).Format("2006-01-02T15:04:05Z")
-			if ts != tt.want && (err != nil) != tt.wantErr {
-				t.Errorf("TimeStamp.Parse() = %v, want = %v", ts, tt.want)
+			if ts != tt.want || (err != nil) != tt.wantErr {
+				t.Errorf("got = %v, want = %v", ts, tt.want)
 			}
 		})
 	}
