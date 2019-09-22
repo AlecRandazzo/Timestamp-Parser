@@ -29,12 +29,7 @@ func (timestamp *TimeStamp) Parse(timestampBytes []byte) (err error) {
 
 	var delta = time.Date(1970-369, 1, 1, 0, 0, 0, 0, time.UTC).UnixNano()
 	// Convert the byte slice to little endian int64 and then convert it to a string
-	timestampInt64, err := bin.LittleEndianBinaryToInt64(timestampBytes)
-	if err != nil {
-		err = fmt.Errorf("failed to parse timestamp bytes, %v", err)
-		*timestamp = TimeStamp(time.Time{})
-		return
-	}
+	timestampInt64, _ := bin.LittleEndianBinaryToInt64(timestampBytes)
 
 	*timestamp = TimeStamp(time.Unix(0, timestampInt64*100+delta).UTC())
 
