@@ -15,23 +15,23 @@ import (
 	"time"
 )
 
-type TimeStamp time.Time
+type RawTimestamp []byte
 
 // Parse a byte slice containing a unix timestamp and convert it to a timestamp string.
-func (timestamp *TimeStamp) Parse(timestampBytes []byte) (err error) {
+func (rawTimestamp RawTimestamp) Parse() (timestamp time.Time, err error) {
 
 	// verify that we are getting the bytes we need
-	if len(timestampBytes) != 8 {
-		err = fmt.Errorf("timestamp.parse() received %v bytes, not 8 bytes", len(timestampBytes))
-		*timestamp = TimeStamp(time.Time{}) // time.Time nil equivalent
+	if len(rawTimestamp) != 8 {
+		err = fmt.Errorf("timestamp.parse() received %v bytes, not 8 bytes", len(rawTimestamp))
+		timestamp = time.Time{} // time.Time nil equivalent
 		return
 	}
 
 	var delta = time.Date(1970-369, 1, 1, 0, 0, 0, 0, time.UTC).UnixNano()
 	// Convert the byte slice to little endian int64 and then convert it to a string
-	timestampInt64, _ := bin.LittleEndianBinaryToInt64(timestampBytes)
+	timestampInt64, _ := bin.LittleEndianBinaryToInt64(rawTimestamp)
 
-	*timestamp = TimeStamp(time.Unix(0, timestampInt64*100+delta).UTC())
+	timestamp = time.Unix(0, timestampInt64*100+delta).UTC()
 
 	return
 }
