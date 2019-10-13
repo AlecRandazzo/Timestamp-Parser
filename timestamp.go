@@ -7,7 +7,7 @@
  *
  */
 
-package GoFor_MFT_Parser
+package timestamp
 
 import (
 	"fmt"
@@ -15,6 +15,7 @@ import (
 	"time"
 )
 
+// RawTimestamp is a []byte alias
 type RawTimestamp []byte
 
 // Parse a byte slice containing a unix timestamp and convert it to a timestamp string.
