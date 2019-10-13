@@ -1,4 +1,4 @@
-package GoFor_MFT_Parser
+package timestamp
 
 import (
 	"testing"
