@@ -23,7 +23,7 @@ func (rawTimestamp RawTimestamp) Parse() (timestamp time.Time, err error) {
 
 	// verify that we are getting the bytes we need
 	if len(rawTimestamp) != 8 {
-		err = fmt.Errorf("timestamp.parse() received %v bytes, not 8 bytes", len(rawTimestamp))
+		err = fmt.Errorf("timestamp.parse() received %d bytes, not 8 bytes", len(rawTimestamp))
 		timestamp = time.Time{} // time.Time nil equivalent
 		return
 	}
