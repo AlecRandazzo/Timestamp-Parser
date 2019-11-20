@@ -1,5 +1,5 @@
-module github.com/AlecRandazzo/Timestamp-Parser
+module github.com/Go-Forensics/Timestamp-Parser
 
 go 1.13.4
 
-require github.com/AlecRandazzo/BinaryTransforms v1.2.4
+require github.com/Go-Forensics/BinaryTransforms v1.3.0
