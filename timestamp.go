@@ -11,7 +11,7 @@ package timestamp
 
 import (
 	"fmt"
-	bin "github.com/AlecRandazzo/BinaryTransforms"
+	bin "github.com/Go-Forensics/BinaryTransforms"
 	"time"
 )
 
