@@ -1,5 +1,2 @@
-github.com/Go-Forensics/BinaryTransforms v1.3.0 h1:7QxPY+MgBuqfcC2O2Lt4Gs0w5zcI3fNsxidWCHTnHUo=
-github.com/Go-Forensics/BinaryTransforms v1.3.0/go.mod h1:h6SgZED9bSpdnia5KUjZcR803Zfe/mBdLHH8pejboxQ=
-github.com/Go-Forensics/BinaryTransforms v1.3.1/go.mod h1:h6SgZED9bSpdnia5KUjZcR803Zfe/mBdLHH8pejboxQ=
-github.com/Go-Forensics/BinaryTransforms v1.3.2 h1:RSbbPD6xtbzAzwKUoZEQHh8v2UB9dhbgRAp0kV4pFcc=
-github.com/Go-Forensics/BinaryTransforms v1.3.2/go.mod h1:h6SgZED9bSpdnia5KUjZcR803Zfe/mBdLHH8pejboxQ=
+github.com/Go-Forensics/BinaryTransforms v1.3.3 h1:W5ya4DS4hhjGE2DnrL7H5GpYu3pTCN8zwRI45Ltnklo=
+github.com/Go-Forensics/BinaryTransforms v1.3.3/go.mod h1:5WYD8lkQ4ISk9RSdHsB0pVl9RlAvw3NJQquWrLu2QV0=
