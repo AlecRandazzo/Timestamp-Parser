@@ -1,4 +1,4 @@
-module github.com/Go-Forensics/Timestamp-Parser
+module github.com/AlecRandazzo/Timestamp-Parser
 
 go 1.14
 
